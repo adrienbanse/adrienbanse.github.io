@@ -10,10 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Adrien Banse</title>
+    <title>EcoLogits | Adrien Banse</title>
     <meta name="author" content="Adrien  Banse">
-    <meta name="description" content="Adrien Banse's personal website
-">
+    <meta name="description" content="Approximate GenAI's environmental impacts">
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
 
 
@@ -32,7 +31,7 @@
     <!-- Styles -->
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/projects/Ecologits/">
     
     <!-- Dark Mode -->
     
@@ -53,7 +52,7 @@
       <!-- Nav Bar -->
       <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
         <div class="container">
-          
+          <a class="navbar-brand title font-weight-lighter" href="/">Adrien Banse</a>
           <!-- Navbar Toggle -->
           <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -66,8 +65,8 @@
             <ul class="navbar-nav ml-auto flex-nowrap">
 
               <!-- About -->
-              <li class="nav-item active">
-                <a class="nav-link" href="/">About<span class="sr-only">(current)</span></a>
+              <li class="nav-item ">
+                <a class="nav-link" href="/">About</a>
               </li>
               
 
@@ -111,143 +110,47 @@
 
     <!-- Content -->
     <div class="container mt-5">
-      <!-- about.html -->
-      <div class="post">
-        <header class="post-header">
-          <h1 class="post-title">
-           Adrien Banse
-          </h1>
-          <p class="desc">Ph. D. student in <a href="https://uclouvain.be/en/research-institutes/icteam" rel="external nofollow noopener" target="_blank">ICTEAM</a> at <a href="https://uclouvain.be/en/index.html" rel="external nofollow noopener" target="_blank">UCLouvain</a>
-</p>
-        </header>
+      <!-- page.html -->
+        <div class="post">
 
-        <article>
-          <div class="profile float-right">
+          <header class="post-header">
+            <h1 class="post-title">EcoLogits</h1>
+            <p class="post-description">Approximate GenAI's environmental impacts</p>
+          </header>
 
-              <figure>
+          <article>
+            <script>
+    if (document.documentElement.getAttribute("data-theme") == "light") {
+        var logo_src = "/assets/img/ecologits_logo_light.png";
+    } else {
+        var logo_src = "/assets/img/ecologits_logo_dark.png";
+    }
+    var logo = document.createElement("IMG");
+    logo.setAttribute("src", logo_src);
+    logo.setAttribute("class", "img-fluid rounded z-depth-1");
+    var scriptTag = document.getElementsByTagName('script');
+    scriptTag = scriptTag[scriptTag.length - 1];
+    var parentTag = scriptTag.parentNode;
+    parentTag.append(logo);
+</script>
 
-  <picture>
-    
+<p><br></p>
 
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/perso2.jpg" class="img-fluid z-depth-1 rounded" width="auto" height="auto" alt="perso2.jpg" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+<p><strong>EcoLogits</strong> is an open-source Python package that <strong>tracks the energy consumption and environmental impacts of using generative AI models through API</strong>s. It supports major LLM providers such as OpenAI, Anthropic, Mistral AI and more.</p>
 
-  </picture>
+<p><strong>EcoLogits</strong> was created and is actively maintained by the <a href="https://genai-impact.org/" rel="external nofollow noopener" target="_blank">GenAI Impact non-profit</a>.</p>
 
-</figure>
+<p><a href="https://ecologits.ai/latest/" rel="external nofollow noopener" target="_blank">
+<button type="button" class="btn btn-sm">Website</button>
+</a>
+<a href="https://github.com/genai-impact/ecologits" rel="external nofollow noopener" target="_blank">
+<button type="button" class="btn btn-sm">Source</button>
+</a></p>
 
-          </div>
 
-          <div class="clearfix">
-            <p>I am a Ph. D. student in the <a href="https://uclouvain.be/fr/node/2107" rel="external nofollow noopener" target="_blank">Mathematical Engineering department</a> of the <a href="https://uclouvain.be/en/research-institutes/icteam" rel="external nofollow noopener" target="_blank">ICTEAM</a>, at <a href="https://uclouvain.be/en/index.html" rel="external nofollow noopener" target="_blank">UCLouvain</a>. My supervisor is <a href="https://perso.uclouvain.be/raphael.jungers/content/home" rel="external nofollow noopener" target="_blank">Raphaël Jungers</a>. I obtained my master’s degree in Mathematical Engineering from <a href="https://uclouvain.be/en/index.html" rel="external nofollow noopener" target="_blank">UCLouvain</a> in 2022. My <a href="https://www.csauthors.net/distance/paul-erdos/adrien-banse" rel="external nofollow noopener" target="_blank">Erdős Number</a> is 4.</p>
+          </article>
 
-<p>My research area is at the intersection of Mathematics and Computer Science. More precisely, I am interested in</p>
-<ul>
-  <li>
-<strong>Metrics between Markov models</strong> and their applications in Control Theory and Reinforcement Learning</li>
-  <li>Smart data-driven methods for the <strong>abstraction of dynamical systems</strong>
-</li>
-</ul>
-
-<p>Previously, I also worked on data-driven methods to analyze stability of constrained switching systems.</p>
-
-          </div>
-
-          <!-- News -->          
-          <div class="news">
-            <h2>News</h2>
-            <div class="table-responsive" style="max-height: 20vw">
-              <table class="table table-sm table-borderless">
-               
-                <tr>
-                  <th scope="row">Feb 21, 2025</th>
-                  <td>
-                    🏅 I received the <a href="https://ieeecss.org/tc/hybrid-systems/tc-award" rel="external nofollow noopener" target="_blank">Hybrid Systems TC Outstanding Student Paper Prize</a> for our CDC23 paper “Data-driven abstractions via adaptive refinements and a Kantorovich metric” (paper <a href="https://ieeexplore.ieee.org/abstract/document/10383513" rel="external nofollow noopener" target="_blank">here</a>).
- 
-                  </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Feb 21, 2025</th>
-                  <td>
-                    🗣️ I will be at <a href="https://hscc.acm.org/2025/" rel="external nofollow noopener" target="_blank">HSCC25</a> in May to present our paper “Memory-dependent abstractions of stochastic systems through the lens of transfer operators” (see pre-print <a href="https://arxiv.org/abs/2502.04240" rel="external nofollow noopener" target="_blank">here</a>)
- 
-                  </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Mar 22, 2024</th>
-                  <td>
-                    🇳🇱 From April to August, I will visit <a href="https://mmazojr.3me.tudelft.nl/" rel="external nofollow noopener" target="_blank">Manual Mazo Jr.</a> and <a href="https://www.tudelft.nl/staff/l.laurenti/" rel="external nofollow noopener" target="_blank">Luca Laurenti</a> at TUDelft, in the Netherlands.
- 
-                  </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Dec 1, 2023</th>
-                  <td>
-                    👨‍💻 Together with Julien Calbert, we presented our package <a href="https://github.com/dionysos-dev/Dionysos.jl" rel="external nofollow noopener" target="_blank">Dionysos.jl</a> at the <a href="https://julia-users-paris.github.io/workshop/en/index.html" rel="external nofollow noopener" target="_blank">Julia Optimization Days</a> (Paris, France), and at the <a href="https://juliacon.org/local/eindhoven2023/" rel="external nofollow noopener" target="_blank">JuliaCon Local</a> (Eindhoven, Netherlands).
- 
-                  </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Sep 18, 2023</th>
-                  <td>
-                    📃 Our paper “Learning stability guarantees for constrained switching linear systems from noisy observations” has been published in <em>Nonlinear Analysis: Hybrid Systems</em> (available online <a href="https://www.sciencedirect.com/science/article/pii/S1751570X23000961#aep-article-footnote-id1" rel="external nofollow noopener" target="_blank">here</a>)
- 
-                  </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Aug 22, 2023</th>
-                  <td>
-                    🗣️ I will be at <a href="https://cdc2023.ieeecss.org/" rel="external nofollow noopener" target="_blank">CDC23</a> in December to present our paper “Data-driven abstractions via adaptive refinements and a Kantorovich metric” (see arXiv extended version <a href="https://arxiv.org/abs/2303.17618" rel="external nofollow noopener" target="_blank">here</a>)
- 
-                  </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Apr 3, 2023</th>
-                  <td>
-                    📃 Our paper “Data-driven memory-dependent abstractions of dynamical systems” was accepted at <a href="https://l4dc.seas.upenn.edu/" rel="external nofollow noopener" target="_blank">L4DC</a> (pre-print arXiv <a href="https://arxiv.org/abs/2212.01926" rel="external nofollow noopener" target="_blank">here</a>)
- 
-                  </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Feb 10, 2023</th>
-                  <td>
-                    🇬🇧 During the whole month of March, I will visit <a href="https://www.cs.ox.ac.uk/people/alessandro.abate/home.html" rel="external nofollow noopener" target="_blank">Alessandro Abate</a> in the <a href="https://oxcav.web.ox.ac.uk/" rel="external nofollow noopener" target="_blank">OXCAV laboratory</a> of the University of Oxford
- 
-                  </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Dec 13, 2022</th>
-                  <td>
-                    🎓 I was granted the FRIA fellowship from the <a href="https://www.frs-fnrs.be/en/" rel="external nofollow noopener" target="_blank">F.R.S. - FNRS</a>
- 
-                  </td>
-                </tr> 
-              </table>
-            </div> 
-          </div>
-
-          
-          <!-- Social -->
-          <div class="social">
-            <div class="contact-icons">
-            <a href="mailto:%61%64%72%69%65%6E.%62%61%6E%73%65@%75%63%6C%6F%75%76%61%69%6E.%62%65" title="email"><i class="fas fa-envelope"></i></a>
-            <a href="https://orcid.org/0000-0002-4456-6618" title="ORCID" rel="external nofollow noopener" target="_blank"><i class="ai ai-orcid"></i></a>
-            <a href="https://scholar.google.com/citations?user=5IuyFpYAAAAJ" title="Google Scholar" rel="external nofollow noopener" target="_blank"><i class="ai ai-google-scholar"></i></a>
-            <a href="https://github.com/adrienbanse" title="GitHub" rel="external nofollow noopener" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/adrienbanse" title="LinkedIn" rel="external nofollow noopener" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://uclouvain.be/fr/repertoires/adrien.banse" title="Work" rel="external nofollow noopener" target="_blank"><i class="fas fa-briefcase"></i></a>
-            
-
-            </div>
-
-            <div class="contact-note">
-              
-            </div>
-            
-          </div>
-        </article>
-
-</div>
+        </div>
 
     </div>
 
