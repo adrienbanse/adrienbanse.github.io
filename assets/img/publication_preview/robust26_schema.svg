@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#37474F"/></marker>
+<marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B71C1C"/></marker>
+<marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#78909C"/></marker>
+</defs>
+<rect width="320" height="200" fill="#fff"/>
+<circle cx="60" cy="60" r="20" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="60" y="61" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">V₁</text>
+<circle cx="60" cy="140" r="20" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="60" y="141" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">V₂</text>
+<path d="M50 43 C38 10, 82 10, 70 43" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="60" y="14" font-size="13" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">1</text>
+<path d="M70 157 C82 190, 38 190, 50 157" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="60" y="192" font-size="13" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">2</text>
+<path d="M45 75 Q26 100 45 125" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="25" y="100" font-size="13" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">2</text>
+<path d="M75 125 Q94 100 75 75" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="95" y="100" font-size="13" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">1</text>
+<line x1="112" y1="100" x2="142" y2="100" stroke="#B71C1C" stroke-width="2" marker-end="url(#r)"/>
+<rect x="158" y="36" width="140" height="40" rx="6" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="228" y="56" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">switched system</text>
+<rect x="158" y="118" width="140" height="40" rx="6" fill="#F7DEDE" stroke="#B71C1C" stroke-width="1.5"/>
+<text x="228" y="138" font-size="14" fill="#B71C1C" text-anchor="middle" font-weight="normal" font-style="italic" dominant-baseline="middle">u = π(x)</text>
+<path d="M298 56 C318 56, 318 138, 300 138" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M158 138 C138 138, 138 56, 156 56" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M228 10 L228 34" fill="none" stroke="#78909C" stroke-width="1.5" marker-end="url(#s)"/>
+<text x="240" y="14" font-size="12" fill="#78909C" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">σ arbitrary</text>
+<text x="228" y="182" font-size="13" fill="#B71C1C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">cost ≤ certified bound</text>
+</svg>

@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Talks | Adrien Banse</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
     <meta name="author" content="Adrien  Banse">
     <meta name="description" content="Adrien Banse's personal website
 ">
@@ -52,6 +53,17 @@
     <script src="/assets/js/dark_mode.js"></script>
     
 
+  <style>
+    .talks-year { font-size: 1.4rem; margin-top: 2rem; }
+    .talks { list-style: none; padding: 0; margin: 0; }
+    .talk { display: flex; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--global-divider-color); }
+    .talk:last-child { border-bottom: none; }
+    .talk-date { flex: 0 0 4rem; color: var(--global-text-color-light); font-size: 0.9rem; padding-top: 0.1rem; }
+    .talk-body { flex: 1; min-width: 0; }
+    .talk-title { font-weight: 500; }
+    .talk-venue { color: var(--global-text-color-light); font-size: 0.9rem; }
+    .talk-tag { font-size: 0.7rem; font-weight: 400; border: 1px solid var(--global-theme-color); border-radius: 3px; padding: 0 0.3rem; margin-left: 0.3rem; white-space: nowrap; vertical-align: 1px; }
+  </style>
   </head>
 
   <!-- Body -->
@@ -82,20 +94,14 @@
               
 
               <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/publications/">Publications</a>
+              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="/talks/">Talks<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="/projects/">Projects</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="/publications/">Publications</a>
-              </li>
-              <li class="nav-item ">
                 <a class="nav-link" href="/cv/">CV</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="/teaching/">Teaching</a>
               </li>
 
               <!-- Toogle theme mode -->
@@ -130,26 +136,136 @@
           </header>
 
           <article>
-            <p>💬 Here is a list of talks that I gave (or that I will give):</p>
+            <p>Talks I have given, most recent first.</p>
 
-<ul>
-  <li>🇫🇷 <strong>Bridge the transparency gap: evaluating LLMs footprint with EcoLogits</strong>, at Green IO Paris (Paris, France) - 09/12/25 -  Talk given as a member of <a href="https://genai-impact.org/" rel="external nofollow noopener" target="_blank">GenAI Impact non-profit</a> member (outside of the scope of my research)</li>
-  <li>🇩🇪 <strong>Comparing Markov Chains: A Cantor-Kantorovich Approach</strong>, at the MPI-SWS Group Meeting (Sarrebruck, Germany) - 05/08/25</li>
-  <li>🇧🇪 <strong>AI for Dummies: LLM, RAG, deep learning, machine learning, Generative AI, 30 min to understand everything</strong>, at the 2025 GreenTech Forum (Brussels, Belgium) - 17/06/25 - Talk given as a member of <a href="https://genai-impact.org/" rel="external nofollow noopener" target="_blank">GenAI Impact non-profit</a> member (outside of the scope of my research)</li>
-  <li>🇺🇸 <strong>Memory-dependent abstractions of stochastic systems through the lens of transfer operators</strong>, at the 28th ACM International Conference on Hybrid Systems: Computation and Control (Irvine, USA) - 06/05/25</li>
-  <li>🇳🇱 <strong>Smart abstraction of stochastic systems using memory</strong>, at the 44th Benelux Meeting on Systems and Control (Egmond aan Zee, Netherlands) - 18/03/25</li>
-  <li>🇧🇪 <strong>Smart abstractions of dynamical systems via a Cantor-Kantorovich distance between Markov chains</strong>, at the 43rd Benelux Meeting on Systems and Control (Blankenberge, Belgium) - 27/03/24</li>
-  <li>🇸🇬 <strong>Data-driven abstractions via adaptive refinements and a Kantorovich metric</strong>, at the 62nd IEEE Conference on Decision and Control (Singapore) - 15/12/23</li>
-  <li>🇳🇱 <strong>Dionysos.jl: a Modular Platform for Smart Symbolic Control</strong>, at the JuliaCon Local Eindhoven (Eindhoven, Netherlands) - 01/12/23</li>
-  <li>🇫🇷 <strong>Dionysos.jl: a Modular Platform for Smart Symbolic Control</strong>, at the Julia and Optimization Days (Paris, France) - 05/10/23</li>
-  <li>🇧🇪 <strong>git and github.com</strong>, at our CPS Group Meeting (Louvain-la-Neuve, Belgium) - 03/10/23</li>
-  <li>🇳🇱 <strong>Leveraging memory for data-driven abstractions</strong>, at the HERALD Lab Meeting (Delft, Netherlands) - 15/05/23</li>
-  <li>🇬🇧 <strong>A new distance between two Markov chains</strong>, at the OXCAV Meeting (Oxford, UK) - 08/03/23</li>
-  <li>🇲🇽 <strong>Black-Box Stability Analysis of Hybrid Systems with Sample-Based Multiple Lyapunov Functions</strong>, at the 61st IEEE Conference on Decision and Control (Cancún, Mexico) - 09/12/22</li>
-  <li>🇧🇪 <strong>Data-driven control of Markovian Jump Linear Systems</strong>, at the INMA Welcome Seminar (Louvain-la-Neuve, Belgium) - 29/11/22</li>
-  <li>🇩🇪 <strong>Learning stability guarantees for data-driven constrained switching linear systems</strong>, at the 25th International Symposium on Mathematical Theory of Networks and Systems (Bayreuth, Germany) - 15/09/22</li>
-  <li>🇧🇪 <strong>Learning stability guarantees for data-driven constrained switching linear systems</strong>, at the 41st Benelux Meeting on Systems and Control (Brussels, Belgium) - 05/07/22</li>
+<h2 class="talks-year">2025</h2>
+<ul class="talks">
+  <li class="talk">
+    <div class="talk-date">9 Dec</div>
+    <div class="talk-body">
+      <div class="talk-title">Bridge the transparency gap: evaluating LLMs footprint with EcoLogits <span class="talk-tag"><a href="https://genai-impact.org/" rel="external nofollow noopener" target="_blank">GenAI Impact</a></span></div>
+      <div class="talk-venue">Green IO Paris · Paris, France <span class="talk-flag">🇫🇷</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">5 Aug</div>
+    <div class="talk-body">
+      <div class="talk-title">Comparing Markov Chains: A Cantor-Kantorovich Approach</div>
+      <div class="talk-venue">MPI-SWS Group Meeting · Sarrebruck, Germany <span class="talk-flag">🇩🇪</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">17 Jun</div>
+    <div class="talk-body">
+      <div class="talk-title">AI for Dummies: LLM, RAG, deep learning, machine learning, Generative AI, 30 min to understand everything <span class="talk-tag"><a href="https://genai-impact.org/" rel="external nofollow noopener" target="_blank">GenAI Impact</a></span></div>
+      <div class="talk-venue">2025 GreenTech Forum · Brussels, Belgium <span class="talk-flag">🇧🇪</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">6 May</div>
+    <div class="talk-body">
+      <div class="talk-title">Memory-dependent abstractions of stochastic systems through the lens of transfer operators</div>
+      <div class="talk-venue">28th ACM International Conference on Hybrid Systems: Computation and Control · Irvine, USA <span class="talk-flag">🇺🇸</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">18 Mar</div>
+    <div class="talk-body">
+      <div class="talk-title">Smart abstraction of stochastic systems using memory</div>
+      <div class="talk-venue">44th Benelux Meeting on Systems and Control · Egmond aan Zee, Netherlands <span class="talk-flag">🇳🇱</span></div>
+    </div>
+  </li>
 </ul>
+
+<h2 class="talks-year">2024</h2>
+<ul class="talks">
+  <li class="talk">
+    <div class="talk-date">27 Mar</div>
+    <div class="talk-body">
+      <div class="talk-title">Smart abstractions of dynamical systems via a Cantor-Kantorovich distance between Markov chains</div>
+      <div class="talk-venue">43rd Benelux Meeting on Systems and Control · Blankenberge, Belgium <span class="talk-flag">🇧🇪</span></div>
+    </div>
+  </li>
+</ul>
+
+<h2 class="talks-year">2023</h2>
+<ul class="talks">
+  <li class="talk">
+    <div class="talk-date">15 Dec</div>
+    <div class="talk-body">
+      <div class="talk-title">Data-driven abstractions via adaptive refinements and a Kantorovich metric</div>
+      <div class="talk-venue">62nd IEEE Conference on Decision and Control · Singapore <span class="talk-flag">🇸🇬</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">1 Dec</div>
+    <div class="talk-body">
+      <div class="talk-title">Dionysos.jl: a Modular Platform for Smart Symbolic Control</div>
+      <div class="talk-venue">JuliaCon Local Eindhoven · Eindhoven, Netherlands <span class="talk-flag">🇳🇱</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">5 Oct</div>
+    <div class="talk-body">
+      <div class="talk-title">Dionysos.jl: a Modular Platform for Smart Symbolic Control</div>
+      <div class="talk-venue">Julia and Optimization Days · Paris, France <span class="talk-flag">🇫🇷</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">3 Oct</div>
+    <div class="talk-body">
+      <div class="talk-title">git and github.com</div>
+      <div class="talk-venue">our CPS Group Meeting · Louvain-la-Neuve, Belgium <span class="talk-flag">🇧🇪</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">15 May</div>
+    <div class="talk-body">
+      <div class="talk-title">Leveraging memory for data-driven abstractions</div>
+      <div class="talk-venue">HERALD Lab Meeting · Delft, Netherlands <span class="talk-flag">🇳🇱</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">8 Mar</div>
+    <div class="talk-body">
+      <div class="talk-title">A new distance between two Markov chains</div>
+      <div class="talk-venue">OXCAV Meeting · Oxford, UK <span class="talk-flag">🇬🇧</span></div>
+    </div>
+  </li>
+</ul>
+
+<h2 class="talks-year">2022</h2>
+<ul class="talks">
+  <li class="talk">
+    <div class="talk-date">9 Dec</div>
+    <div class="talk-body">
+      <div class="talk-title">Black-Box Stability Analysis of Hybrid Systems with Sample-Based Multiple Lyapunov Functions</div>
+      <div class="talk-venue">61st IEEE Conference on Decision and Control · Cancún, Mexico <span class="talk-flag">🇲🇽</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">29 Nov</div>
+    <div class="talk-body">
+      <div class="talk-title">Data-driven control of Markovian Jump Linear Systems</div>
+      <div class="talk-venue">INMA Welcome Seminar · Louvain-la-Neuve, Belgium <span class="talk-flag">🇧🇪</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">15 Sep</div>
+    <div class="talk-body">
+      <div class="talk-title">Learning stability guarantees for data-driven constrained switching linear systems</div>
+      <div class="talk-venue">25th International Symposium on Mathematical Theory of Networks and Systems · Bayreuth, Germany <span class="talk-flag">🇩🇪</span></div>
+    </div>
+  </li>
+  <li class="talk">
+    <div class="talk-date">5 Jul</div>
+    <div class="talk-body">
+      <div class="talk-title">Learning stability guarantees for data-driven constrained switching linear systems</div>
+      <div class="talk-venue">41st Benelux Meeting on Systems and Control · Brussels, Belgium <span class="talk-flag">🇧🇪</span></div>
+    </div>
+  </li>
+</ul>
+
 
           </article>
 

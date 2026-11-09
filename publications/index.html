@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Publications | Adrien Banse</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
     <meta name="author" content="Adrien  Banse">
     <meta name="description" content="Adrien Banse's personal website
 ">
@@ -52,6 +53,41 @@
     <script src="/assets/js/dark_mode.js"></script>
     
 
+  <style>
+    .pubs { list-style: none; padding: 0; margin: 0 0 2rem; }
+    .pub { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1rem; margin: 0 -1rem 0.5rem; border-radius: 6px; }
+    .pub-highlight { background: rgba(183, 28, 28, 0.06); }
+    .pub { scroll-margin-top: 70px; transition: box-shadow 0.3s; }
+    .pub:target { box-shadow: 0 0 0 2px var(--global-theme-color); }
+    html[data-theme=dark] .pub-highlight { background: rgba(255, 130, 130, 0.08); }
+    .pub-thumb { flex: 0 0 260px; }
+    .pub-thumb img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--global-divider-color); border-radius: 4px; }
+    .pub-body { flex: 1; min-width: 0; }
+    .pub-title { font-weight: bold; }
+    .pub-links { margin-top: 0.25rem; }
+    .pub-links .btn { margin: 0 0.25rem 0 0; }
+    .pub-abstract { font-size: 0.9rem; margin: 0.5rem 0 0; }
+    @media (max-width: 576px) {
+      .pub { flex-direction: column; gap: 0.75rem; }
+      .pub-thumb { flex-basis: auto; width: 100%; max-width: 360px; }
+    }
+    .scholar { border: 1px solid var(--global-divider-color); border-radius: 6px; padding: 1rem 1.25rem; margin: 0.5rem 0 1.5rem; }
+    .scholar-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 2fr); gap: 1rem; align-items: end; }
+    .scholar-num { font-size: 1.8rem; font-weight: 500; line-height: 1.1; color: var(--global-theme-color); }
+    .scholar-label { font-size: 0.8rem; color: var(--global-text-color-light); }
+    .scholar-chart { display: flex; align-items: flex-end; gap: 6px; height: 84px; }
+    .scholar-bar { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; min-width: 0; }
+    .scholar-bar-fill { width: 100%; max-width: 34px; min-height: 2px; background: var(--global-theme-color); border-radius: 2px 2px 0 0; }
+    .scholar-bar-now .scholar-bar-fill { opacity: 0.45; }
+    .scholar-bar-n { font-size: 0.7rem; color: var(--global-text-color-light); }
+    .scholar-bar-y { font-size: 0.7rem; color: var(--global-text-color-light); margin-top: 2px; }
+    .scholar-foot { font-size: 0.8rem; color: var(--global-text-color-light); margin-top: 0.75rem; }
+    .scholar:not(.scholar-ready) .scholar-grid { display: none; }
+    @media (max-width: 576px) {
+      .scholar-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .scholar-chart { grid-column: 1 / -1; }
+    }
+  </style>
   </head>
 
   <!-- Body -->
@@ -82,20 +118,14 @@
               
 
               <!-- Other pages -->
-              <li class="nav-item ">
-                <a class="nav-link" href="/talks/">Talks</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" href="/projects/">Projects</a>
-              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="/publications/">Publications<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="/cv/">CV</a>
+                <a class="nav-link" href="/talks/">Talks</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" href="/teaching/">Teaching</a>
+                <a class="nav-link" href="/cv/">CV</a>
               </li>
 
               <!-- Toogle theme mode -->
@@ -130,165 +160,265 @@
           </header>
 
           <article>
-            <p>This list may not be updated, see my <a href="https://scholar.google.com/citations?user=5IuyFpYAAAAJ&amp;hl=fr" rel="external nofollow noopener" target="_blank">🎓 page</a> for the latest version.</p>
+            <div class="scholar" id="scholar-stats">
+  <div class="scholar-grid">
+    <div class="scholar-tile"><div class="scholar-num" data-key="citations">–</div><div class="scholar-label">Citations</div></div>
+    <div class="scholar-tile"><div class="scholar-num" data-key="h_index">–</div><div class="scholar-label">h-index</div></div>
+    <div class="scholar-tile"><div class="scholar-num" data-key="i10_index">–</div><div class="scholar-label">i10-index</div></div>
+    <div class="scholar-chart" aria-label="Citations per year"></div>
+  </div>
+  <div class="scholar-foot">From my <a href="https://scholar.google.com/citations?user=5IuyFpYAAAAJ" rel="external nofollow noopener" target="_blank">Google Scholar profile</a><span class="scholar-updated"></span>. This list may lag behind; Scholar has the latest papers.</div>
+</div>
+<script>
+  fetch("/assets/json/scholar.json", { cache: "no-cache" })
+    .then((r) => (r.ok ? r.json() : Promise.reject()))
+    .then((d) => {
+      const box = document.getElementById("scholar-stats");
+      box.querySelectorAll("[data-key]").forEach((el) => (el.textContent = d[el.dataset.key] ?? "–"));
+      const date = new Date(d.updated + "T00:00:00");
+      box.querySelector(".scholar-updated").textContent = ", updated " + date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+      const years = Object.entries(d.cites_per_year || {});
+      const max = Math.max(1, ...years.map(([, n]) => n));
+      const thisYear = String(new Date().getFullYear());
+      box.querySelector(".scholar-chart").innerHTML = years
+        .map(([y, n]) => `<div class="scholar-bar${y === thisYear ? " scholar-bar-now" : ""}" title="${n} citations in ${y}${y === thisYear ? " (so far)" : ""}">` +
+          `<span class="scholar-bar-n">${n}</span><span class="scholar-bar-fill" style="height:${Math.round((n / max) * 100)}%"></span>` +
+          `<span class="scholar-bar-y">${y}</span></div>`)
+        .join("");
+      box.classList.add("scholar-ready");
+    })
+    .catch(() => {});
+</script>
 
 <h2 id="technical-reports">Technical reports</h2>
 
-<ul>
-  <li>
-    <p><strong>Memory-Dependent Interval Markov Chain Abstractions of Stochastic Dynamics</strong><br>
-Menno van Zutphen, <ins>AB</ins>, Domagoj Herceg, Giannis Delimpaltadakis, Duarte Antunes<br>
-<em>arXiv</em>, 2026<br>
-<a href="https://arxiv.org/abs/2610.02950" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">pre-print</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Robust Optimal Control of Arbitrarily Switched Systems: A Path-Complete Framework</strong><br>
-Léa Ninite, <ins>AB</ins>, Guillaume Berger, Raphaël M. Jungers<br>
-<em>arXiv</em>, 2026<br>
-<a href="https://arxiv.org/abs/2607.15055" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">pre-print</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Comparing Labeled Markov Chains: A Cantor-Kantorovich Approach</strong><br>
-<ins>AB</ins>, Alessandro Abate, Raphaël M. Jungers<br>
-<em>arXiv</em>, 2025<br>
-<a href="https://arxiv.org/abs/2511.18103" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">pre-print</button>
-</a></p>
-  </li>
+<ul class="pubs">
+<li class="pub" id="imc26">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/imc26_schema.svg" alt="Figure from Memory-Dependent Interval Markov Chain Abstractions of Stochastic Dynamics" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Memory-Dependent Interval Markov Chain Abstractions of Stochastic Dynamics</div>
+    <div class="pub-authors">Menno van Zutphen, <ins>AB</ins>, Domagoj Herceg, Giannis Delimpaltadakis, Duarte Antunes</div>
+    <div class="pub-venue"><em>arXiv</em>, 2026</div>
+    <div class="pub-links">
+<a href="https://arxiv.org/abs/2610.02950" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">pre-print</button></a>
+    </div>
+    <p class="pub-abstract">Finite-state interval Markov-chain (IMC) abstractions provide sound verification and performance bounds for continuous-state stochastic systems by enclosing cell-to-cell transition probabilities and costs in intervals. Finite-state Markovian abstractions are generally lossy, as state aggregation often destroys the Markov property. Recently, memory-dependent Markov-chain (MC) abstractions of stochastic systems have been developed to mitigate this by recording recently visited cells. In this paper, we develop the memory-dependent extension of IMC abstractions. Building on the insight that memory narrows the family of state distributions that could occur inside the current cell, we prove that memory tightens the local intervals, at the price of a larger abstraction. We also formulate no-memory IMC abstractions, tightening classic IMC abstraction intervals without enlarging the state space. To characterize spatial refinement relative to memory, we derive two cost-guarantee tightness upper bounds. The bounds depend, respectively, on cell size, and on the worst-case remaining distributional ambiguity after filtering over the remembered past. We then specialize our result to linear-Gaussian systems, for which we derive a closed-form upper bound on this ambiguity. Numerical examples show that the memory-dependent and no-memory constructions can produce tighter expected-cost intervals than comparable partition refined models.</p>
+  </div>
+</li>
+<li class="pub" id="robust26">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/robust26_schema.svg" alt="Figure from Robust Optimal Control of Arbitrarily Switched Systems: A Path-Complete Framework" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Robust Optimal Control of Arbitrarily Switched Systems: A Path-Complete Framework</div>
+    <div class="pub-authors">Léa Ninite, <ins>AB</ins>, Guillaume Berger, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>arXiv</em>, 2026</div>
+    <div class="pub-links">
+<a href="https://arxiv.org/abs/2607.15055" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">pre-print</button></a>
+    </div>
+    <p class="pub-abstract">This paper addresses the robust control of switched systems under arbitrary switching with performance guarantees. We propose a framework that jointly synthesizes a feedback policy and a certified upper bound on its corresponding infinite-horizon closed-loop value function. The proposed upper bound not only certifies the performance of the synthesized policy, but can also be optimized during controller synthesis. More precisely, our approach associates functions with the nodes of a path-complete graph and enforces graph-based Bellman inequalities along its edges. Exploiting a newly introduced notion of reachability graph, these functions are combined into both a feedback policy and a certified upper bound on its corresponding closed-loop value function, expressed as a pointwise min-max combination of the graph-indexed functions. For linear switched systems with quadratic stage costs, the proposed framework admits tractable computational formulations based on semidefinite programming and alternating optimization. Numerical experiments, including a building temperature regulation benchmark, demonstrate the practical usefulness of the proposed approach both for direct feedback control using the synthesized policy and for model predictive control using the certified upper bound as a terminal cost.</p>
+  </div>
+</li>
+<li class="pub" id="lmc25">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/lmc25_schema.svg" alt="Figure from Comparing Labeled Markov Chains: A Cantor-Kantorovich Approach" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Comparing Labeled Markov Chains: A Cantor-Kantorovich Approach</div>
+    <div class="pub-authors"><ins>AB</ins>, Alessandro Abate, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>arXiv</em>, 2025</div>
+    <div class="pub-links">
+<a href="https://arxiv.org/abs/2511.18103" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">pre-print</button></a>
+    </div>
+    <p class="pub-abstract">Labeled Markov Chains (or LMCs for short) are useful mathematical objects to model complex probabilistic languages. A central challenge is to compare two LMCs, for example to assess the accuracy of an abstraction or to quantify the effect of model perturbations. In this work, we study the recently introduced Cantor-Kantorovich (or CK) distance. In particular we show that the latter can be framed as a discounted sum of finite-horizon Total Variation distances, making it an instance of discounted linear distance, but arising from the natural Cantor topology. Building on the latter observation, we analyze the properties of the CK distance along three dimensions: computational complexity, continuity properties and approximation. More precisely, we show that the exact computation of the CK distance is #P-hard. We also provide an upper bound on the CK distance as a function of the approximation relation between the two LMCs, and show that a bounded CK distance implies a bounded error between probabilities of finite-horizon traces. Finally, we provide a computable approximation scheme, and show that the latter is also #P-hard. Altogether, our results provide a rigorous theoretical foundation for the CK distance and clarify its relationship with existing distances.</p>
+  </div>
+</li>
 </ul>
 
 <h2 id="journal-papers">Journal papers</h2>
 
-<ul>
-  <li>
-    <p><strong>EcoLogits: Evaluating the Environmental Impacts of Generative AI</strong><br>
-Samuel Rincé, <ins>AB</ins><br>
-<em>The Journal of Open Source Software</em> - 2025<br>
-Paper written as a <a href="https://genai-impact.org/" rel="external nofollow noopener" target="_blank">GenAI Impact non-profit member</a> (outside of the scope of my research)<br>
-<a href="https://joss.theoj.org/papers/10.21105/joss.07471" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a>
-<a href="https://github.com/openjournals/joss-reviews/issues/7471#issuecomment-3054126498" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">review</button>
-</a>
-<a href="https://github.com/genai-impact/ecologits" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">package</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Data-driven memory-dependent abstractions of dynamical systems via a Cantor-Kantorovich metric</strong><br>
-<ins>AB</ins>, Licio Romao, Alessandro Abate, Raphaël M. Jungers<br>
-<em>IEEE Transactions on Automatic Control</em>, 2025<br>
-<a href="https://ieeexplore.ieee.org/document/11048505" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Learning stability guarantees for constrained switching linear systems from noisy observations</strong><br>
-<ins>AB</ins>, Zheming Wang, Raphaël M. Jungers<br>
-<em>Nonlinear Analysis: Hybrid Systems</em> - 2024<br>
-<a href="https://www.sciencedirect.com/science/article/abs/pii/S1751570X23000961" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a></p>
-  </li>
+<ul class="pubs">
+<li class="pub" id="ecologits">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/ecologits_schema.svg" alt="Figure from EcoLogits: Evaluating the Environmental Impacts of Generative AI" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">EcoLogits: Evaluating the Environmental Impacts of Generative AI</div>
+    <div class="pub-authors">Samuel Rincé, <ins>AB</ins></div>
+    <div class="pub-venue"><em>The Journal of Open Source Software</em>, 2025</div>
+    <div class="pub-links">
+<a href="https://joss.theoj.org/papers/10.21105/joss.07471" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+<a href="https://github.com/openjournals/joss-reviews/issues/7471#issuecomment-3054126498" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">review</button></a>
+<a href="https://github.com/genai-impact/ecologits" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">package</button></a>
+    </div>
+    <p class="pub-abstract">Recent advancements in Generative AI (GenAI), particularly Large Language Models (LLMs), have led to significant increases in computational power and energy demands. These models are not only becoming larger and more complex but are also being widely deployed across various platforms, reaching millions of users and developers. This widespread use has escalated the overall energy consumption and environmental impact associated with these technologies. To address these concerns, we introduce EcoLogits, an open-source Python package designed to evaluate the environmental footprint of using GenAI models. EcoLogits estimates energy consumption and multi-criteria environmental impacts of GenAI API requests using a bottom-up Life Cycle Assessment methodology, considering both direct energy use and hardware production impacts.</p>
+  </div>
+</li>
+<li class="pub" id="tac25">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/tac25_schema.svg" alt="Figure from Data-driven memory-dependent abstractions of dynamical systems via a Cantor-Kantorovich metric" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Data-driven memory-dependent abstractions of dynamical systems via a Cantor-Kantorovich metric</div>
+    <div class="pub-authors"><ins>AB</ins>, Licio Romao, Alessandro Abate, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>IEEE Transactions on Automatic Control</em>, 2025</div>
+    <div class="pub-links">
+<a href="https://ieeexplore.ieee.org/document/11048505" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+    </div>
+    <p class="pub-abstract">Abstractions of dynamical systems enable their verification and the design of feedback controllers using simpler, usually discrete, models. In this paper, we propose a data-driven abstraction mechanism based on a novel metric between Markov models. Our approach is based purely on observing output labels of the underlying dynamics, thus opening the road for a fully data-driven approach to construct abstractions. Another feature of the proposed approach is the use of memory to better represent the dynamics in a given region of the state space. We show through numerical examples the usefulness of the proposed methodology.</p>
+  </div>
+</li>
+<li class="pub" id="nahs24">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/nahs24_schema.svg" alt="Figure from Learning stability guarantees for constrained switching linear systems from noisy observations" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Learning stability guarantees for constrained switching linear systems from noisy observations</div>
+    <div class="pub-authors"><ins>AB</ins>, Zheming Wang, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>Nonlinear Analysis: Hybrid Systems</em>, 2024</div>
+    <div class="pub-links">
+<a href="https://www.sciencedirect.com/science/article/abs/pii/S1751570X23000961" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+    </div>
+    <p class="pub-abstract">We present a data-driven framework based on Lyapunov theory to provide stability guarantees for a family of hybrid systems. In particular, we are interested in the asymptotic stability of switching linear systems whose switching sequence is constrained by labeled graphs, namely constrained switching linear systems. In order to do so, we provide chance-constrained bounds on stability guarantees, that can be obtained from a finite number of noisy observations. We first present a method providing stability guarantees from sampled trajectories in the hybrid state-space of the system. We then study the harder situation where one only observes the continuous part of the hybrid states. We show that in this case, one may still obtain formal chance-constrained stability guarantees. For this latter result we provide a new upper bound of general interest, also for model-based stability analysis</p>
+  </div>
+</li>
 </ul>
 
 <h2 id="peer-reviewed-conferences">Peer-reviewed conferences</h2>
 
-<ul>
-  <li>
-    <p><strong>A path-complete approach for optimal control of switched systems</strong><br>
-Léa Ninite, <ins>AB</ins>, Guillaume Berger, Raphaël M. Jungers<br>
-<em>29th ACM International Conference on Hybrid Systems: Computation and Control</em>, 2026<br>
-<a href="https://arxiv.org/abs/2602.04310" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">pre-print</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Agile Temporal Discretization for Symbolic Optimal Control</strong><br>
-Adrien Janssens, <ins>AB</ins>, Julien Calbert, Raphaël M. Jungers<br>
-<em>64th IEEE Conference on Decision and Control (CDC)</em>, 2025<br>
-<a href="https://ieeexplore.ieee.org/document/11312201" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Memory-dependent abstractions of stochastic systems through the lens of transfer operators</strong><br>
-<ins>AB</ins>, Giannis Delimpaltadakis, Luca Laurenti, Manuel Mazo Jr., Raphaël M. Jungers<br>
-<em>28th ACM International Conference on Hybrid Systems: Computation and Control</em>, 2025<br>
-<a href="https://dl.acm.org/doi/10.1145/3716863.3718039" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a>
-<a href="https://github.com/adrienbanse/HSCC25_RP" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">code</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>A Cantor-Kantorovich Metric Between Markov Decision Processes with Application to Transfer Learning</strong><br>
-<ins>AB</ins>, Venkatraman Renganathan, Raphaël M. Jungers<br>
-<em>26th International Symposium on Mathematical Theory of Networks and Systems (MTNS)</em> - 2024<br>
-<a href="https://arxiv.org/abs/2407.08324" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a>
-<a href="https://github.com/adrienbanse/MTNSExperiments" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">code</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Dionysos.jl: a Modular Platform for Smart Symbolic Control</strong><br>
-Julien Calbert, <ins>AB</ins>, Benoît Legat, Raphaël M. Jungers<br>
-<em>JuliaCon</em> - 2024<br>
-<a href="https://proceedings.juliacon.org/papers/10.21105/jcon.00160" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a>
-<a href="https://github.com/JuliaCon/proceedings-review/issues/160" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">review</button>
-</a>
-<a href="https://codeocean.com/capsule/8370135/tree/v2" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">code</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Data-driven abstractions via adaptive refinements and a Kantorovich metric</strong><br>
-<ins>AB</ins>, Licio Romao, Alessandro Abate, Raphaël M. Jungers<br>
-<em>62nd IEEE Conference on Decision and Control (CDC)</em> - 2023<br>
-<span style="color:#B71C1C">Hybrid Systems TC Outstanding Student Paper Prize</span><br>
-<a href="https://ieeexplore.ieee.org/document/10383513" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a>
-<a href="https://arxiv.org/abs/2303.17618" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">extended version</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Data-driven memory-dependent abstractions of dynamical systems</strong><br>
-<ins>AB</ins>, Licio Romao, Alessandro Abate, Raphaël M. Jungers<br>
-<em>5th Conference on Learning for Dynamics &amp; Control (L4DC)</em> - 2023<br>
-<a href="https://proceedings.mlr.press/v211/banse23a" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Black-box stability analysis of hybrid systems with sample-based multiple Lyapunov functions</strong><br>
-<ins>AB</ins>, Zheming Wang, Raphaël M. Jungers<br>
-<em>61st IEEE Conference on Decision and Control (CDC)</em> - 2022<br>
-<a href="https://ieeexplore.ieee.org/document/9993008" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a></p>
-  </li>
-  <li>
-    <p><strong>Learning stability guarantees for data-driven constrained switching linear systems</strong><br>
-<ins>AB</ins>, Zheming Wang, Raphaël M. Jungers<br>
-<em>25th International Symposium on Mathematical Theory of Networks and Systems (MTNS)</em> - 2022<br>
-<a href="https://arxiv.org/abs/2205.00696" rel="external nofollow noopener" target="_blank">
-<button type="button" class="btn btn-sm">paper</button>
-</a></p>
-  </li>
+<ul class="pubs">
+<li class="pub" id="hscc26">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/hscc26_schema.svg" alt="Figure from A path-complete approach for optimal control of switched systems" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">A path-complete approach for optimal control of switched systems</div>
+    <div class="pub-authors">Léa Ninite, <ins>AB</ins>, Guillaume Berger, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>29th ACM International Conference on Hybrid Systems: Computation and Control</em>, 2026</div>
+    <div class="pub-links">
+<a href="https://arxiv.org/abs/2602.04310" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">pre-print</button></a>
+    </div>
+    <p class="pub-abstract">We study the problem of estimating the value function of discrete-time switched systems under arbitrary switching. Unlike the switched LQR problem, where both inputs and mode sequences are optimized, we consider the case where switching is exogenous. For such systems, the number of possible mode sequences grows exponentially with time, making the exact computation of the value function intractable. This motivates the development of tractable bounds that approximate it. We propose a novel framework, based on path-complete graphs, for constructing computable upper bounds on the value function. In this framework, multiple quadratic functions are combined through a directed graph that encodes dynamic programming inequalities, yielding convex and sound formulations. For example, for switched linear systems with quadratic cost, we derive tractable LMI-based formulations and provide computational complexity bounds. We further establish approximation guarantees for the upper bounds and show asymptotic non-conservativeness using concepts from graph theory. Finally, we extend the approach to controller synthesis for systems with affine control inputs and demonstrate its effectiveness on numerical examples.</p>
+  </div>
+</li>
+<li class="pub" id="cdc25">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/cdc25_schema.svg" alt="Figure from Agile Temporal Discretization for Symbolic Optimal Control" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Agile Temporal Discretization for Symbolic Optimal Control</div>
+    <div class="pub-authors">Adrien Janssens, <ins>AB</ins>, Julien Calbert, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>64th IEEE Conference on Decision and Control (CDC)</em>, 2025</div>
+    <div class="pub-links">
+<a href="https://ieeexplore.ieee.org/document/11312201" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+    </div>
+    <p class="pub-abstract">As control systems grow in complexity, abstraction-based methods have become essential for designing controllers with formal guarantees. However, a key limitation of these methods is their reliance on discrete-time models, typically obtained by discretizing continuous-time systems with a fixed timestep. This discretization leads to two major problems: when the timestep is small, the abstraction includes numerous stuttering and spurious trajectories, making controller synthesis suboptimal or even infeasible; conversely, a large time step may also render control design infeasible due to a lack of flexibility. In this work, drawing inspiration from Reinforcement Learning concepts, we introduce temporal abstractions, which allow for a flexible timestep. We provide a method for constructing such abstractions and formally establish their correctness in controller design. Furthermore we show how to apply these to optimal control under reachability specifications. Finally we showcase our methods on two numerical examples, highlighting that our approach leads to controllers that achieve a lower worst-case control cost.</p>
+  </div>
+</li>
+<li class="pub" id="hscc25">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/hscc25_schema.svg" alt="Figure from Memory-dependent abstractions of stochastic systems through the lens of transfer operators" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Memory-dependent abstractions of stochastic systems through the lens of transfer operators</div>
+    <div class="pub-authors"><ins>AB</ins>, Giannis Delimpaltadakis, Luca Laurenti, Manuel Mazo Jr., Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>28th ACM International Conference on Hybrid Systems: Computation and Control</em>, 2025</div>
+    <div class="pub-links">
+<a href="https://dl.acm.org/doi/10.1145/3716863.3718039" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+<a href="https://github.com/adrienbanse/HSCC25_RP" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">code</button></a>
+    </div>
+    <p class="pub-abstract">With the increasing ubiquity of safety-critical autonomous systems operating in uncertain environments, there is a need for mathematical methods for formal verification of stochastic models. Towards formally verifying properties of stochastic systems, methods based on discrete, finite Markov approximations -- abstractions -- thereof have surged in recent years. These are found in contexts where: either a) one only has partial, discrete observations of the underlying continuous stochastic process, or b) the original system is too complex to analyze, so one partitions the continuous state-space of the original system to construct a handleable, finite-state model thereof. In both cases, the abstraction is an approximation of the discrete stochastic process that arises precisely from the discretization of the underlying continuous process. The fact that the abstraction is Markov and the discrete process is not (even though the original one is) leads to approximation errors. Towards accounting for non-Markovianity, we introduce memory-dependent abstractions for stochastic systems, capturing dynamics with memory effects. Our contribution is twofold. First, we provide a formalism for memory-dependent abstractions based on transfer operators. Second, we quantify the approximation error by upper bounding the total variation distance between the true continuous state distribution and its discrete approximation.</p>
+  </div>
+</li>
+<li class="pub" id="dionysos">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/dionysos_schema.svg" alt="Figure from Dionysos.jl: a Modular Platform for Smart Symbolic Control" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Dionysos.jl: a Modular Platform for Smart Symbolic Control</div>
+    <div class="pub-authors">Julien Calbert, <ins>AB</ins>, Benoît Legat, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>JuliaCon</em>, 2024</div>
+    <div class="pub-links">
+<a href="https://proceedings.juliacon.org/papers/10.21105/jcon.00160" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+<a href="https://github.com/JuliaCon/proceedings-review/issues/160" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">review</button></a>
+<a href="https://codeocean.com/capsule/8370135/tree/v2" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">code</button></a>
+    </div>
+    <p class="pub-abstract">We introduce Dionysos.jl, a modular package for solving optimal control problems for complex dynamical systems using state-of-the-art and experimental techniques from symbolic control, optimization, and learning. More often than not with Cyber-Physical systems, the only sensible way of developing a controller is by discretizing the different variables, thus transforming the control task into a purely combinatorial problem on a finite-state mathematical object, called an abstraction of this system. Although this approach offers a safety-critical framework, the available techniques suffer important scalability issues. In order to render these techniques practical, it is necessary to construct smarter abstractions that differ from classical techniques by partitioning the state-space in a non trivial way.</p>
+  </div>
+</li>
+<li class="pub pub-highlight" id="cdc23">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/cdc23_schema.svg" alt="Figure from Data-driven abstractions via adaptive refinements and a Kantorovich metric" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Data-driven abstractions via adaptive refinements and a Kantorovich metric</div>
+    <div class="pub-authors"><ins>AB</ins>, Licio Romao, Alessandro Abate, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>62nd IEEE Conference on Decision and Control (CDC)</em>, 2023</div>
+    <div class="pub-note"><span style="color:#B71C1C">Hybrid Systems TC Outstanding Student Paper Prize</span></div>
+    <div class="pub-links">
+<a href="https://ieeexplore.ieee.org/document/10383513" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+<a href="https://arxiv.org/abs/2303.17618" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">extended version</button></a>
+    </div>
+    <p class="pub-abstract">We introduce an adaptive refinement procedure for smart, and scalable abstraction of dynamical systems. Our technique relies on partitioning the state space depending on the observation of future outputs. However, this knowledge is dynamically constructed in an adaptive, asymmetric way. In order to learn the optimal structure, we define a Kantorovich-inspired metric between Markov chains, and we use it as a loss function. Our technique is prone to data-driven frameworks, but not restricted to. We also study properties of the above mentioned metric between Markov chains, which we believe could be of application for wider purpose. We propose an algorithm to approximate it, and we show that our method yields a much better computational complexity than using classical linear programming techniques.</p>
+  </div>
+</li>
+<li class="pub" id="l4dc23">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/l4dc23_schema.svg" alt="Figure from Data-driven memory-dependent abstractions of dynamical systems" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Data-driven memory-dependent abstractions of dynamical systems</div>
+    <div class="pub-authors"><ins>AB</ins>, Licio Romao, Alessandro Abate, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>5th Conference on Learning for Dynamics &amp; Control (L4DC)</em>, 2023</div>
+    <div class="pub-links">
+<a href="https://proceedings.mlr.press/v211/banse23a" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+    </div>
+    <p class="pub-abstract">We propose a sample-based, sequential method to abstract a (potentially black-box) dynamical system with a sequence of memory-dependent Markov chains of increasing size. We show that this approximation allows to alleviating a correlation bias that has been observed in sample-based abstractions. We further propose a methodology to detect on the fly the memory length resulting in an abstraction with sufficient accuracy. We prove that under reasonable assumptions, the method converges to a sound abstraction in some precise sense, and we showcase it on two case studies.</p>
+  </div>
+</li>
+<li class="pub" id="cdc22">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/cdc22_schema.svg" alt="Figure from Black-box stability analysis of hybrid systems with sample-based multiple Lyapunov functions" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Black-box stability analysis of hybrid systems with sample-based multiple Lyapunov functions</div>
+    <div class="pub-authors"><ins>AB</ins>, Zheming Wang, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>61st IEEE Conference on Decision and Control (CDC)</em>, 2022</div>
+    <div class="pub-links">
+<a href="https://ieeexplore.ieee.org/document/9993008" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+    </div>
+    <p class="pub-abstract">We present a framework based on multiple Lyapunov functions to find probabilistic data-driven guarantees on the stability of unknown constrained switching linear systems (CSLS), which are switching linear systems whose switching signal is constrained by an automaton. The stability of a CSLS is characterized by its constrained joint spectral radius (CJSR). Inspired by the scenario approach and previous work on unconstrained switching systems, we characterize the number of observations needed to find sufficient conditions on the (in-)stability of a CSLS using the notion of CJSR. More precisely, our contribution is the following: we derive a probabilistic upper bound on the CJSR of an unknown CSLS from a finite number of observations. We also derive a deterministic lower bound on the CJSR. From this we obtain a probabilistic method to characterize the stability of an unknown CSLS.</p>
+  </div>
+</li>
 </ul>
+
+<h2 id="peer-reviewed-extended-abstracts">Peer-reviewed (extended) abstracts</h2>
+
+<ul class="pubs">
+<li class="pub">
+  <div class="pub-body">
+    <div class="pub-title">Smart abstractions of stochastic systems using memory</div>
+    <div class="pub-authors"><ins>AB</ins>, Giannis Delimpaltadakis, Luca Laurenti, Manuel Mazo Jr., Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>44th Benelux Meeting on Systems and Control</em>, 2025</div>
+    <div class="pub-links">
+<a href="https://www.beneluxmeeting.nl/2025/uploads/papers/bmsc2025_320.pdf" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+    </div>
+  </div>
+</li>
+<li class="pub">
+  <div class="pub-body">
+    <div class="pub-title">A Cantor-Kantorovich Metric Between Markov Decision Processes with Application to Transfer Learning</div>
+    <div class="pub-authors"><ins>AB</ins>, Venkatraman Renganathan, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>26th International Symposium on Mathematical Theory of Networks and Systems (MTNS)</em>, 2024</div>
+    <div class="pub-links">
+<a href="https://arxiv.org/abs/2407.08324" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+<a href="https://github.com/adrienbanse/MTNSExperiments" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">code</button></a>
+    </div>
+  </div>
+</li>
+<li class="pub">
+  <div class="pub-body">
+    <div class="pub-title">Learning stability guarantees for data-driven constrained switching linear systems</div>
+    <div class="pub-authors"><ins>AB</ins>, Zheming Wang, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>25th International Symposium on Mathematical Theory of Networks and Systems (MTNS)</em>, 2022</div>
+    <div class="pub-links">
+<a href="https://arxiv.org/abs/2205.00696" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+    </div>
+  </div>
+</li>
+<li class="pub">
+  <div class="pub-body">
+    <div class="pub-title">Learning stability guarantees for data-driven constrained switching linear systems</div>
+    <div class="pub-authors"><ins>AB</ins>, Zheming Wang, Raphaël M. Jungers</div>
+    <div class="pub-venue"><em>41st Benelux Meeting on Systems and Control</em>, 2022</div>
+    <div class="pub-links">
+<a href="https://dial.uclouvain.be/pr/boreal/object/boreal:258729" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">paper</button></a>
+    </div>
+  </div>
+</li>
+</ul>
+
+
+
+
+
+
 
 
           </article>

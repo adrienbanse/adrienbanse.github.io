@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#37474F"/></marker>
+<marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B71C1C"/></marker>
+<marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#78909C"/></marker>
+</defs>
+<rect width="320" height="200" fill="#fff"/>
+<rect x="20" y="127" width="35" height="35" rx="0" fill="#E3EAED" stroke="none" stroke-width="0"/>
+<rect x="265" y="22" width="35" height="35" rx="0" fill="#F7DEDE" stroke="none" stroke-width="0"/>
+<rect x="125" y="57" width="35" height="105" rx="0" fill="#37474F" stroke="none" stroke-width="0"/>
+<line x1="20" y1="22" x2="20" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="55" y1="22" x2="55" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="90" y1="22" x2="90" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="125" y1="22" x2="125" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="160" y1="22" x2="160" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="195" y1="22" x2="195" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="230" y1="22" x2="230" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="265" y1="22" x2="265" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="300" y1="22" x2="300" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="20" y1="22" x2="300" y2="22" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="20" y1="57" x2="300" y2="57" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="20" y1="92" x2="300" y2="92" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="20" y1="127" x2="300" y2="127" stroke="#B0BEC5" stroke-width="1"/>
+<line x1="20" y1="162" x2="300" y2="162" stroke="#B0BEC5" stroke-width="1"/>
+<circle cx="37.5" cy="144.5" r="4" fill="#37474F"/>
+<path d="M37.5 140.5 C23.5 114.5, 51.5 114.5, 41.5 138.5" fill="none" stroke="#78909C" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#s)"/>
+<path d="M41.5 144.5 C 90 20, 170 10, 212.5 39.5" fill="none" stroke="#B71C1C" stroke-width="2" marker-end="url(#r)"/>
+<path d="M212.5 39.5 Q 247.5 25.5 276.5 39.5" fill="none" stroke="#B71C1C" stroke-width="2" marker-end="url(#r)"/>
+<text x="100" y="34" font-size="13" fill="#B71C1C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">3τ</text>
+<text x="247.5" y="53.5" font-size="13" fill="#B71C1C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">τ</text>
+<text x="63.5" y="122.5" font-size="13" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">τ</text>
+<path d="M30 184 C24 170, 44 170, 38 182" fill="none" stroke="#78909C" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#s)"/>
+<text x="48" y="182" font-size="12" fill="#78909C" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">fixed step: stutters</text>
+<line x1="180" y1="182" x2="204" y2="182" stroke="#B71C1C" stroke-width="2" marker-end="url(#r)"/>
+<text x="210" y="182" font-size="12" fill="#B71C1C" text-anchor="start" font-weight="normal" font-style="normal" dominant-baseline="middle">flexible step</text>
+</svg>

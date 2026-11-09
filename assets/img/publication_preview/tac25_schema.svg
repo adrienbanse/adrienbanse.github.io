@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#37474F"/></marker>
+<marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B71C1C"/></marker>
+<marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#78909C"/></marker>
+</defs>
+<rect width="320" height="200" fill="#fff"/>
+<rect x="15" y="40" width="50" height="120" rx="0" fill="#F7DEDE" stroke="none" stroke-width="0"/>
+<rect x="65" y="40" width="50" height="120" rx="0" fill="#E3EAED" stroke="none" stroke-width="0"/>
+<rect x="15" y="40" width="100" height="120" rx="0" fill="none" stroke="#78909C" stroke-width="1.5"/>
+<text x="40" y="28" font-size="14" fill="#B71C1C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">a</text>
+<text x="90" y="28" font-size="14" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">b</text>
+<path d="M28 140 C55 40, 80 170, 102 64" fill="none" stroke="#37474F" stroke-width="1.8" marker-end="url(#a)"/>
+<circle cx="28.0" cy="140.0" r="3.5" fill="#37474F"/>
+<circle cx="51.7" cy="99.5" r="3.5" fill="#37474F"/>
+<circle cx="70.6" cy="106.2" r="3.5" fill="#37474F"/>
+<circle cx="88.4" cy="103.0" r="3.5" fill="#37474F"/>
+<text x="147" y="84" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="italic" dominant-baseline="middle">a a b b …</text>
+<line x1="124" y1="104" x2="170" y2="104" stroke="#B71C1C" stroke-width="2" marker-end="url(#r)"/>
+<circle cx="200" cy="60" r="19" fill="#F7DEDE" stroke="#B71C1C" stroke-width="1.5"/>
+<text x="200" y="61" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">aa</text>
+<circle cx="280" cy="60" r="19" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="280" y="61" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">ab</text>
+<circle cx="200" cy="148" r="19" fill="#F7DEDE" stroke="#B71C1C" stroke-width="1.5"/>
+<text x="200" y="149" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">ba</text>
+<circle cx="280" cy="148" r="19" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="280" y="149" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">bb</text>
+<line x1="220" y1="60" x2="258" y2="60" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="280" y1="80" x2="280" y2="126" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="260" y1="148" x2="222" y2="148" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="200" y1="128" x2="200" y2="82" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="266" y1="74" x2="216" y2="134" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="240" y="188" font-size="12" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">Markov chain with memory</text>
+</svg>

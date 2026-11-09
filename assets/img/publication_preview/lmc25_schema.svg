@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#37474F"/></marker>
+<marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B71C1C"/></marker>
+<marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#78909C"/></marker>
+</defs>
+<rect width="320" height="200" fill="#fff"/>
+<text x="18" y="30" font-size="15" fill="#37474F" text-anchor="start" font-weight="normal" font-style="italic" dominant-baseline="middle">M</text>
+<circle cx="42" cy="60" r="13" fill="#F7DEDE" stroke="#B71C1C" stroke-width="1.5"/>
+<text x="42" y="61" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">a</text>
+<circle cx="92" cy="60" r="13" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="92" y="61" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">b</text>
+<path d="M55 54 Q67 46 79 54" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M79 66 Q67 74 55 66" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<text x="18" y="118" font-size="15" fill="#37474F" text-anchor="start" font-weight="normal" font-style="italic" dominant-baseline="middle">M′</text>
+<circle cx="42" cy="148" r="13" fill="#F7DEDE" stroke="#B71C1C" stroke-width="1.5"/>
+<text x="42" y="149" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">a</text>
+<circle cx="92" cy="148" r="13" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="92" y="149" font-size="13" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">b</text>
+<path d="M55 142 Q67 134 79 142" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M79 154 Q67 162 55 154" fill="none" stroke="#37474F" stroke-width="1.5" marker-end="url(#a)"/>
+<line x1="120" y1="104" x2="150" y2="104" stroke="#B71C1C" stroke-width="2" marker-end="url(#r)"/>
+<line x1="170" y1="104" x2="215" y2="64" stroke="#B0BEC5" stroke-width="1.5"/>
+<line x1="170" y1="104" x2="215" y2="144" stroke="#B0BEC5" stroke-width="1.5"/>
+<line x1="215" y1="64" x2="262" y2="44" stroke="#B0BEC5" stroke-width="1.5"/>
+<line x1="215" y1="64" x2="262" y2="84" stroke="#B0BEC5" stroke-width="1.5"/>
+<line x1="215" y1="144" x2="262" y2="124" stroke="#B0BEC5" stroke-width="1.5"/>
+<line x1="215" y1="144" x2="262" y2="164" stroke="#B0BEC5" stroke-width="1.5"/>
+<circle cx="170" cy="104" r="5" fill="#37474F"/>
+<circle cx="215" cy="64" r="10" fill="#F7DEDE" stroke="#B71C1C" stroke-width="1.5"/>
+<text x="215" y="65" font-size="11" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">a</text>
+<circle cx="215" cy="144" r="10" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="215" y="145" font-size="11" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">b</text>
+<circle cx="262" cy="44" r="10" fill="#F7DEDE" stroke="#B71C1C" stroke-width="1.5"/>
+<text x="262" y="45" font-size="11" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">a</text>
+<circle cx="262" cy="84" r="10" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="262" y="85" font-size="11" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">b</text>
+<circle cx="262" cy="124" r="10" fill="#F7DEDE" stroke="#B71C1C" stroke-width="1.5"/>
+<text x="262" y="125" font-size="11" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">a</text>
+<circle cx="262" cy="164" r="10" fill="#E3EAED" stroke="#78909C" stroke-width="1.5"/>
+<text x="262" y="165" font-size="11" fill="#37474F" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">b</text>
+<text x="215" y="22" font-size="12" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">t = 1</text>
+<text x="262" y="22" font-size="12" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">t = 2</text>
+<text x="292" y="104" font-size="16" fill="#78909C" text-anchor="middle" font-weight="normal" font-style="normal" dominant-baseline="middle">…</text>
+</svg>
