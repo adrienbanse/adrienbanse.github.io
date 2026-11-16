@@ -19,7 +19,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install scholarly==1.7.11
+      # scholarly imports bibtexparser.bibdatabase, which bibtexparser 2.x removed
+      - run: pip install scholarly==1.7.11 "bibtexparser<2"
 
       - name: Fetch stats
         run: python .github/scripts/scholar_stats.py assets/json/scholar.json
