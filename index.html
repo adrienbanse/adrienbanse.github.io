@@ -42,7 +42,7 @@
 
     <!-- Styles -->
     
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css?v=d854154c">
     <link rel="canonical" href="http://localhost:4000/">
     
     <!-- Dark Mode -->
@@ -162,6 +162,14 @@
             <div class="table-responsive">
               <table class="table table-sm table-borderless">
                 <tr>
+                  <th scope="row">Nov 20, 2026</th>
+                  <td>
+                    📃 Our new pre-print “<a href="/publications/#nl2ltl26">Efficient Natural Language to Temporal Logic Translation for Real-Time Physical AI</a>” (O. Schön, AB, J. Lygeros, L. Lindemann) is now available <a href="https://arxiv.org/abs/2611.27489" rel="external nofollow noopener" target="_blank">here</a> — <a href="#demo-modal" class="demo-link" data-toggle="modal" data-target="#demo-modal" role="button"><span class="demo-chip-icon">▶</span> watch the demo</a>
+
+ 
+                  </td>
+                </tr> 
+                <tr>
                   <th scope="row">Nov 10, 2026</th>
                   <td>
                     📃 Our new pre-print “<a href="/publications/#l2p26">Learn-To-Propagate: Distributionally Robust Motion Planning for Nonlinear Uncertain Systems</a>” (E. Figueiredo, AB, Q. H. Ho, R. Jungers, M. Lahijanian, L. Laurenti) is now available <a href="https://arxiv.org/abs/2611.13863" rel="external nofollow noopener" target="_blank">here</a>
@@ -189,13 +197,6 @@
                     🎉  I successfully defended my Ph.D. thesis « Data-driven memory-dependent abstractions of dynamical systems » on June 29! Next stop: Switzerland 🇨🇭 – my next challenge will be at ETH Zürich working with <a href="https://control.ee.ethz.ch/people/profile.john-lygeros.html" rel="external nofollow noopener" target="_blank">Prof. John Lygeros</a>.
  
                   </td>
-                </tr> 
-                <tr>
-                  <th scope="row">Feb 3, 2026</th>
-                  <td>
-                    📃 Our paper “<a href="/publications/#hscc26">A path-complete approach for optimal control of switched systems</a>” (L. Ninite, AB, G. Berger, R. Jungers; pre-print <a href="https://arxiv.org/abs/2602.04310" rel="external nofollow noopener" target="_blank">here</a>) has been accepted for presentation at <a href="https://hscc.acm.org/2026/" rel="external nofollow noopener" target="_blank">HSCC/ICCPS26</a> in May
- 
-                  </td>
                 </tr>
               </table>
             </div>
@@ -221,6 +222,24 @@
             </div>
             
           </div>
+<div class="modal fade demo-modal" id="demo-modal" tabindex="-1" role="dialog" aria-label="Demo video" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button type="button" class="demo-close" data-dismiss="modal" aria-label="Close">×</button>
+      <video controls playsinline preload="none" poster="/assets/video/nl2ltl26_demo_poster.jpg" width="576" height="720">
+        <source src="/assets/video/nl2ltl26_demo.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption">Our translator running on a standard laptop: the mine rover’s commands are translated on the spot, without a cloud connection. Video by <a href="https://www.linkedin.com/posts/oliverschoen_ai-chatbots-have-become-a-natural-part-of-activity-7530646580773806080-toZX" rel="external nofollow noopener" target="_blank">Oliver Schön</a>.</p>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = $("#demo-modal"), video = modal.find("video")[0];
+    modal.on("shown.bs.modal", () => video.play().catch(() => {}));
+    modal.on("hide.bs.modal", () => video.pause());
+  });
+</script>
         </article>
 
 </div>

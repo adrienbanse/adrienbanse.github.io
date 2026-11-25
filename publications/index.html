@@ -42,7 +42,7 @@
 
     <!-- Styles -->
     
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css?v=d854154c">
     <link rel="canonical" href="http://localhost:4000/publications/">
     
     <!-- Dark Mode -->
@@ -193,6 +193,19 @@
 <h2 id="technical-reports">Technical reports</h2>
 
 <ul class="pubs">
+<li class="pub" id="nl2ltl26">
+  <div class="pub-thumb"><img src="/assets/img/publication_preview/nl2ltl26_schema.svg" alt="Figure from Efficient Natural Language to Temporal Logic Translation for Real-Time Physical AI" loading="lazy"></div>
+  <div class="pub-body">
+    <div class="pub-title">Efficient Natural Language to Temporal Logic Translation for Real-Time Physical AI</div>
+    <div class="pub-authors">Oliver Schön, <ins>AB</ins>, John Lygeros, Lars Lindemann</div>
+    <div class="pub-venue"><em>arXiv</em>, 2026</div>
+    <div class="pub-links">
+<a href="https://arxiv.org/abs/2611.27489" rel="external nofollow noopener" target="_blank"><button type="button" class="btn btn-sm">pre-print</button></a>
+<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#demo-modal"><span class="demo-chip-icon">▶</span> watch the demo · 0:38</button>
+    </div>
+    <p class="pub-abstract">Robots can be controlled to perform tasks with guaranteed correctness when the task instructions are stated in a formal language. Large language models (LLMs) have been widely used to allow users to provide such instructions in natural language (NL), by translating NL into formal language. When deploying such translators on a robot, however, we face limited computing and energy resources, while offloading computation or data to the cloud may be infeasible or undesirable. Yet an LLM is a general-purpose text generator, whereas a formula in a fixed formal language fragment follows a well-defined syntax. We therefore ask whether text generation is needed at all. For the formal language of linear temporal logic (LTL), we show that this translation can instead be broken down into answering a set of questions with pre-defined answers. We then construct a System-One model, a recent class of NL-based classifier, to provide such answers and enable us to translate a natural language instruction into an LTL instruction. On three benchmarks, our translator matches or exceeds the accuracy of the best local LLMs available, at up to one order of magnitude lower runtime and energy consumption. We show that it generalizes to unseen atomic propositions and temporal patterns.</p>
+  </div>
+</li>
 <li class="pub" id="l2p26">
   <div class="pub-thumb"><img src="/assets/img/publication_preview/l2p26_preview.png" alt="Figure from Learn-To-Propagate: Distributionally Robust Motion Planning for Nonlinear Uncertain Systems" loading="lazy"></div>
   <div class="pub-body">
@@ -425,6 +438,24 @@
   </div>
 </li>
 </ul>
+<div class="modal fade demo-modal" id="demo-modal" tabindex="-1" role="dialog" aria-label="Demo video" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button type="button" class="demo-close" data-dismiss="modal" aria-label="Close">×</button>
+      <video controls playsinline preload="none" poster="/assets/video/nl2ltl26_demo_poster.jpg" width="576" height="720">
+        <source src="/assets/video/nl2ltl26_demo.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption">Our translator running on a standard laptop: the mine rover’s commands are translated on the spot, without a cloud connection. Video by <a href="https://www.linkedin.com/posts/oliverschoen_ai-chatbots-have-become-a-natural-part-of-activity-7530646580773806080-toZX" rel="external nofollow noopener" target="_blank">Oliver Schön</a>.</p>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = $("#demo-modal"), video = modal.find("video")[0];
+    modal.on("shown.bs.modal", () => video.play().catch(() => {}));
+    modal.on("hide.bs.modal", () => video.pause());
+  });
+</script>
 
 
 

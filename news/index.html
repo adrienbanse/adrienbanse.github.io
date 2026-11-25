@@ -42,7 +42,7 @@
 
     <!-- Styles -->
     
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css?v=d854154c">
     <link rel="canonical" href="http://localhost:4000/news/">
     
     <!-- Dark Mode -->
@@ -128,6 +128,14 @@
             <div class="news">
               <div class="table-responsive">
               <table class="table table-sm table-borderless">
+                <tr>
+                  <th scope="row">Nov 20, 2026</th>
+                  <td>
+                    📃 Our new pre-print “<a href="/publications/#nl2ltl26">Efficient Natural Language to Temporal Logic Translation for Real-Time Physical AI</a>” (O. Schön, AB, J. Lygeros, L. Lindemann) is now available <a href="https://arxiv.org/abs/2611.27489" rel="external nofollow noopener" target="_blank">here</a> — <a href="#demo-modal" class="demo-link" data-toggle="modal" data-target="#demo-modal" role="button"><span class="demo-chip-icon">▶</span> watch the demo</a>
+
+ 
+                  </td>
+                </tr> 
                 <tr>
                   <th scope="row">Nov 10, 2026</th>
                   <td>
@@ -245,6 +253,24 @@
               </table>
               </div>
             </div>
+<div class="modal fade demo-modal" id="demo-modal" tabindex="-1" role="dialog" aria-label="Demo video" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button type="button" class="demo-close" data-dismiss="modal" aria-label="Close">×</button>
+      <video controls playsinline preload="none" poster="/assets/video/nl2ltl26_demo_poster.jpg" width="576" height="720">
+        <source src="/assets/video/nl2ltl26_demo.mp4" type="video/mp4">
+      </video>
+      <p class="demo-caption">Our translator running on a standard laptop: the mine rover’s commands are translated on the spot, without a cloud connection. Video by <a href="https://www.linkedin.com/posts/oliverschoen_ai-chatbots-have-become-a-natural-part-of-activity-7530646580773806080-toZX" rel="external nofollow noopener" target="_blank">Oliver Schön</a>.</p>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = $("#demo-modal"), video = modal.find("video")[0];
+    modal.on("shown.bs.modal", () => video.play().catch(() => {}));
+    modal.on("hide.bs.modal", () => video.pause());
+  });
+</script>
           </article>
 
         </div>
